@@ -1,0 +1,31 @@
+Em Estatística, um teste de hipóteses é um procedimento usado para tomar decisões sobre uma população com base em uma amostra.
+
+Estrutura básica
+ 
+
+Hipótese nula (H₀)
+Representa a situação que se assume verdadeira inicialmente.
+Exemplo: H0:μ=50H_0: \mu = 50H0:μ=50
+Hipótese alternativa (H₁ ou Ha)
+Representa a afirmação que se deseja investigar.
+Exemplo: H1:μ≠50H_1: \mu \neq 50H1:μ=50
+Nível de significância (α\alphaα)
+Probabilidade máxima de cometer erro tipo I.
+Valores comuns: 0,05 ou 0,01.
+Estatística de teste
+Valor calculado a partir dos dados da amostra.
+Pode ser um valor z, t, qui-quadrado, F, etc.
+Regra de decisão
+Se o valor-p ≤ α, rejeita-se H₀.
+Se o valor-p > α, não se rejeita H₀.
+Valor t no R
+
+
+
+# para calcular o valor t
+
+# usamos o valor do grau de confiança (%) e o grau de liberdade (n-1)
+
+# Exemplo 95% bilateral com 15 amostras
+
+t = qt(0.975,14)        # 0.975 = 1 - 0.025 (alfa/2)

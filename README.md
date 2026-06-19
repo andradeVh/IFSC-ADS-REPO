@@ -14,7 +14,7 @@ Demonstrar Proficiência: Servir como um portfólio prático dos temas abordados
 
 Matriz Curricular 
 
-```markdown
+
 # IFSC-ADS-REPO
 
 - 1_FASE
@@ -22,22 +22,26 @@ Matriz Curricular
   - FUNDAMENTOS_DE_ARQUITETURA_E_ORGANIZACAO_DE_COMPUTADORES
   - INGLES_INSTRUMENTAL_I
   - INTRODUCAO_A_COMPUTACAO
-    - shellscript_e_robocode
+    - [ubuntu-autoinstall](https://github.com/andradeVh/ubuntu-autoinstall)
+    - [robocode](https://github.com/gaspanhol/Robocode-e-a-pedra-filosofal)
+    - [fobinacci.sh](https://github.com/andradeVh/fibonacciFor-in-shell-script)
   - LOGICA_MATEMATICA
   - PENSAMENTO_COMPUTACIONAL_E_ALGORITMOS
-    - projetos_e_exercicios_algoritmos
+    - [Jogo da Velha](https://github.com/andradeVh/Jogo-da-Velha)
 
 - 2_FASE
   - ATIVIDADES_DE_EXTENSAO_I
+    - [Site Museu](https://github.com/Projeto-Site-do-Museu/ifsc-museu-saojose)
   - COMUNICACAO_E_EXPRESSAO
   - FUNDAMENTOS_DE_PROBABILIDADE_E_ESTATISTICA
   - PROGRAMACAO_FRONTEND_I
+    - [Loja Virtual](https://github.com/andradeVh/stardew-shop-vanilla-js)
   - PROGRAMACAO_ORIENTADA_A_OBJETOS
+    - [POO Repo](https://github.com/andradeVh/POO)
   - REDES_DE_COMPUTADORES
 
 - 3_FASE
   - BANCO_DE_DADOS
-    - scripts_sql_e_modelagem
   - ESTRUTURA_DE_DADOS
   - ENGENHARIA_DE_SOFTWARE_I
   - PROGRAMACAO_FRONTEND_II
@@ -48,7 +52,6 @@ Matriz Curricular
   - ENGENHARIA_DE_SOFTWARE_II
   - INTERFACE_HUMANO_COMPUTADOR
   - PROGRAMACAO_BACKEND
-    - projetos_api_e_servidor
   - SISTEMAS_OPERACIONAIS
 
 - 5_FASE

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Monty Hall</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .doors {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .door {
+            width: 100px;
+            height: 150px;
+            background-color: #444;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .door:hover {
+            background-color: #666;
+            transform: scale(1.05);
+        }
+        .door.open {
+            background-color: #ccc;
+            color: black;
+            cursor: default;
+        }
+        .door.selected {
+            border: 3px solid yellow;
+        }
+        .hidden {
+            display: none;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .options {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+    </style>
+<script>var __uzdbm_1 = "ef5a1c96-340f-41a0-ac92-77fd77245414";var __uzdbm_2 = "NWExNDVhNDEtZGwzeS00Njc3LWJlNjYtYTMwMGMyMjczOGM0JDQ1LjE2MC44OC4xMjg=";var __uzdbm_3 = "7f9000ef5a1c96-340f-41a0-ac92-77fd7724541437-176964255856712208821013-002d047f9b6dc082ec22593";var __uzdbm_4 = "false";var __uzdbm_5 = "uzmx";var __uzdbm_6 = "7f900002277e12-2958-4e78-99b4-502f83ad1b7b37-176964255856712208821013-79e1dec979f2074a2593";var __uzdbm_7 = "ifsc.edu.br";</script> <script>   (function (w, d, e, u, c, g, a, b) {     w["SSJSConnectorObj"] = w["SSJSConnectorObj"] || {       ss_cid: c,       domain_info: "auto",     };     w[g] = function (i, j) {       w["SSJSConnectorObj"][i] = j;     };     a = d.createElement(e);     a.async = true;     if (       navigator.userAgent.indexOf('MSIE') !== -1 ||       navigator.appVersion.indexOf('Trident/') > -1     ) {       u = u.replace("/advanced/", "/advanced/ie/");     }     a.src = u;     b = d.getElementsByTagName(e)[0];     b.parentNode.insertBefore(a, b);   })(     window, document, "script", "/18f5227b-e27b-445a-a53f-f845fbe69b40/stormcaster.js", "dl40", "ssConf"   );   ssConf("c1", "https://sig.ifsc.edu.br");   ssConf("c3", "c99a4269-161c-4242-a3f0-28d44fa6ce24");   ssConf("au", "sig.ifsc.edu.br");   ssConf("cu", "validate.perfdrive.com, ssc"); </script> </head>
+<body>
+    <h1>Jogo de Monty Hall</h1>
+    <p>Escolha quantas vezes voc&#195;&#170; quer jogar (entre 1 e 100):</p>
+    <input type="number" id="rounds-input" min="1" max="100" value="1">
+    <button id="start-btn">Iniciar Jogo</button>
+    
+    <div id="game" class="hidden">
+        <div class="doors">
+            <div class="door" data-id="0">Porta 1</div>
+            <div class="door" data-id="1">Porta 2</div>
+            <div class="door" data-id="2">Porta 3</div>
+        </div>
+        <div id="question" class="hidden">
+            <p>Voc&#195;&#170; quer trocar de porta?</p>
+            <div id="options" class="options hidden">
+                <button id="yes-btn">SIM</button>
+                <button id="no-btn">N&#195;&#131;O</button>
+            </div>
+        </div>
+        <button id="restart-btn" class="hidden">Reiniciar Jogo</button>
+        <p id="result" class="hidden"></p>
+        <p id="game-stats" class="hidden"></p>
+    </div>
+
+    <script>
+        const doors = document.querySelectorAll('.door');
+        const yesBtn = document.getElementById('yes-btn');
+        const noBtn = document.getElementById('no-btn');
+        const questionDiv = document.getElementById('question');
+        const optionsDiv = document.getElementById('options');
+        const restartBtn = document.getElementById('restart-btn');
+        const resultText = document.getElementById('result');
+        const gameStats = document.getElementById('game-stats');
+        const roundsInput = document.getElementById('rounds-input');
+        const startBtn = document.getElementById('start-btn');
+
+        let prizeDoor; // Porta com o carro
+        let playerChoice; // Porta escolhida pelo jogador
+        let revealedDoor; // Porta revelada pelo apresentador
+        let rounds; // Quantidade de rodadas
+        let wins = 0; // Contador de vit&#195;&#179;rias
+
+        // Fun&#195;&#167;&#195;&#163;o para iniciar o jogo
+        function initializeGame() {
+            prizeDoor = Math.floor(Math.random() * 3); // Porta do pr&#195;&#170;mio
+            playerChoice = null;
+            revealedDoor = null;
+
+            doors.forEach(door => {
+                door.classList.remove('open', 'selected');
+                door.textContent = `Porta ${parseInt(door.dataset.id) + 1}`;
+                door.style.cursor = "pointer";
+                door.addEventListener('click', handleDoorClick);
+            });
+
+            resultText.classList.add('hidden');
+            questionDiv.classList.add('hidden');
+            optionsDiv.classList.add('hidden');
+            restartBtn.classList.add('hidden');
+            gameStats.classList.add('hidden');
+        }
+
+        // Fun&#195;&#167;&#195;&#163;o para come&#195;&#167;ar a nova rodada
+        function startRound() {
+            rounds = parseInt(roundsInput.value);
+            if (rounds < 1 || rounds > 100) {
+                alert("Escolha um n&#195;&#186;mero de rodadas entre 1 e 100.");
+                return;
+            }
+
+            wins = 0; // Resetar contagem de vit&#195;&#179;rias
+            startBtn.classList.add('hidden');
+            document.getElementById('game').classList.remove('hidden');
+            playNextRound();
+        }
+
+        // Fun&#195;&#167;&#195;&#163;o para rodar uma rodada
+        function playNextRound() {
+            initializeGame();
+            resultText.classList.add('hidden');
+            questionDiv.classList.add('hidden');
+            optionsDiv.classList.add('hidden');
+            if (rounds > 0) {
+                rounds--;
+            } else {
+                endGame();
+                return;
+            }
+        }
+
+        // Jogador escolhe uma porta
+        function handleDoorClick(event) {
+            if (playerChoice !== null) return; // Evita m&#195;&#186;ltiplas escolhas
+
+            playerChoice = parseInt(event.target.dataset.id);
+            doors.forEach(door => door.classList.remove('selected'));
+            event.target.classList.add('selected');
+
+            revealBodeDoor();
+        }
+
+        // Revela uma porta com bode
+        function revealBodeDoor() {
+            revealedDoor = [0, 1, 2].find(
+                door => door !== playerChoice && door !== prizeDoor
+            );
+            doors[revealedDoor].classList.add('open');
+            doors[revealedDoor].textContent = "Bode &#240;&#159;&#144;&#144;";
+            doors[revealedDoor].style.cursor = "default";
+
+            // Exibe a pergunta e as op&#195;&#167;&#195;&#181;es de troca
+            questionDiv.classList.remove('hidden');
+            optionsDiv.classList.remove('hidden');
+
+            yesBtn.onclick = () => resolveGame(true);
+            noBtn.onclick = () => resolveGame(false);
+        }
+
+        // Resolve o jogo
+        function resolveGame(isSwitching) {
+            optionsDiv.classList.add('hidden'); // Esconde as op&#195;&#167;&#195;&#181;es de troca
+            questionDiv.classList.add('hidden'); // Esconde a pergunta
+
+            // Troca a porta se o jogador decidir trocar
+            if (isSwitching) {
+                playerChoice = [0, 1, 2].find(
+                    door => door !== playerChoice && door !== revealedDoor
+                );
+            }
+
+            showResult();
+        }
+
+        // Mostra o resultado final
+        function showResult() {
+            doors.forEach((door, index) => {
+                if (index === prizeDoor) {
+                    door.textContent = "Carro &#240;&#159;&#154;&#151;";
+                } else {
+                    door.textContent = "Bode &#240;&#159;&#144;&#144;";
+                }
+                door.classList.add('open');
+                door.style.cursor = "default";
+            });
+
+            const isWinner = playerChoice === prizeDoor;
+            if (isWinner) {
+                wins++;
+            }
+
+            resultText.textContent = isWinner
+                ? "Parab&#195;&#169;ns! Voc&#195;&#170; ganhou o carro! &#240;&#159;&#154;&#151;"
+                : "Voc&#195;&#170; perdeu! Era um bode. &#240;&#159;&#144;&#144;";
+            resultText.classList.remove('hidden');
+
+            gameStats.textContent = `Rodadas restantes: ${rounds} | Vit&#195;&#179;rias: ${wins}`;
+            gameStats.classList.remove('hidden');
+
+            if (rounds > 0) {
+                restartBtn.classList.remove('hidden');
+                restartBtn.onclick = playNextRound;
+            } else {
+                endGame();
+            }
+        }
+
+        // Finaliza o jogo
+        function endGame() {
+            resultText.textContent = `Jogo finalizado! Voc&#195;&#170; venceu ${wins} vezes.`;
+            resultText.classList.remove('hidden');
+            gameStats.classList.add('hidden');
+            restartBtn.classList.add('hidden');
+            startBtn.classList.remove('hidden');
+            startBtn.textContent = "Jogar novamente";
+        }
+
+        // Iniciar o jogo ao clicar no bot&#195;&#163;o de start
+        startBtn.onclick = startRound;
+
+        // Inicializa o jogo ao carregar a p&#195;&#161;gina
+        initializeGame();
+    </script>
+</body>
+</html>
