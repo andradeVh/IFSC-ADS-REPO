@@ -1,0 +1,373 @@
+[
+  {
+    "id": "13408",
+    "variavel": "Percentual da população residente diagnosticada com autismo no total da população residente",
+    "unidade": "%",
+    "resultados": [
+      {
+        "classificacoes": [
+          {
+            "id": "86",
+            "nome": "Cor ou raça",
+            "categoria": {
+              "95251": "Total"
+            }
+          }
+        ],
+        "series": [
+          {
+            "localidade": {
+              "id": "11",
+              "nivel": {
+                "id": "N3",
+                "nome": "Unidade da Federação"
+              },
+              "nome": "Rondônia"
+            },
+            "serie": {
+              "2022": "1.3"
+            }
+          },
+          {
+            "localidade": {
+              "id": "12",
+              "nivel": {
+                "id": "N3",
+                "nome": "Unidade da Federação"
+              },
+              "nome": "Acre"
+            },
+            "serie": {
+              "2022": "1.6"
+            }
+          },
+          {
+            "localidade": {
+              "id": "13",
+              "nivel": {
+                "id": "N3",
+                "nome": "Unidade da Federação"
+              },
+              "nome": "Amazonas"
+            },
+            "serie": {
+              "2022": "1.1"
+            }
+          },
+          {
+            "localidade": {
+              "id": "14",
+              "nivel": {
+                "id": "N3",
+                "nome": "Unidade da Federação"
+              },
+              "nome": "Roraima"
+            },
+            "serie": {
+              "2022": "1.2"
+            }
+          },
+          {
+            "localidade": {
+              "id": "15",
+              "nivel": {
+                "id": "N3",
+                "nome": "Unidade da Federação"
+              },
+              "nome": "Pará"
+            },
+            "serie": {
+              "2022": "1.1"
+            }
+          },
+          {
+            "localidade": {
+              "id": "16",
+              "nivel": {
+                "id": "N3",
+                "nome": "Unidade da Federação"
+              },
+              "nome": "Amapá"
+            },
+            "serie": {
+              "2022": "1.5"
+            }
+          },
+          {
+            "localidade": {
+              "id": "17",
+              "nivel": {
+                "id": "N3",
+                "nome": "Unidade da Federação"
+              },
+              "nome": "Tocantins"
+            },
+            "serie": {
+              "2022": "1.0"
+            }
+          },
+          {
+            "localidade": {
+              "id": "21",
+              "nivel": {
+                "id": "N3",
+                "nome": "Unidade da Federação"
+              },
+              "nome": "Maranhão"
+            },
+            "serie": {
+              "2022": "1.1"
+            }
+          },
+          {
+            "localidade": {
+              "id": "22",
+              "nivel": {
+                "id": "N3",
+                "nome": "Unidade da Federação"
+              },
+              "nome": "Piauí"
+            },
+            "serie": {
+              "2022": "1.2"
+            }
+          },
+          {
+            "localidade": {
+              "id": "23",
+              "nivel": {
+                "id": "N3",
+                "nome": "Unidade da Federação"
+              },
+              "nome": "Ceará"
+            },
+            "serie": {
+              "2022": "1.4"
+            }
+          },
+          {
+            "localidade": {
+              "id": "24",
+              "nivel": {
+                "id": "N3",
+                "nome": "Unidade da Federação"
+              },
+              "nome": "Rio Grande do Norte"
+            },
+            "serie": {
+              "2022": "1.1"
+            }
+          },
+          {
+            "localidade": {
+              "id": "25",
+              "nivel": {
+                "id": "N3",
+                "nome": "Unidade da Federação"
+              },
+              "nome": "Paraíba"
+            },
+            "serie": {
+              "2022": "1.2"
+            }
+          },
+          {
+            "localidade": {
+              "id": "26",
+              "nivel": {
+                "id": "N3",
+                "nome": "Unidade da Federação"
+              },
+              "nome": "Pernambuco"
+            },
+            "serie": {
+              "2022": "1.2"
+            }
+          },
+          {
+            "localidade": {
+              "id": "27",
+              "nivel": {
+                "id": "N3",
+                "nome": "Unidade da Federação"
+              },
+              "nome": "Alagoas"
+            },
+            "serie": {
+              "2022": "1.1"
+            }
+          },
+          {
+            "localidade": {
+              "id": "28",
+              "nivel": {
+                "id": "N3",
+                "nome": "Unidade da Federação"
+              },
+              "nome": "Sergipe"
+            },
+            "serie": {
+              "2022": "1.2"
+            }
+          },
+          {
+            "localidade": {
+              "id": "29",
+              "nivel": {
+                "id": "N3",
+                "nome": "Unidade da Federação"
+              },
+              "nome": "Bahia"
+            },
+            "serie": {
+              "2022": "1.0"
+            }
+          },
+          {
+            "localidade": {
+              "id": "31",
+              "nivel": {
+                "id": "N3",
+                "nome": "Unidade da Federação"
+              },
+              "nome": "Minas Gerais"
+            },
+            "serie": {
+              "2022": "1.1"
+            }
+          },
+          {
+            "localidade": {
+              "id": "32",
+              "nivel": {
+                "id": "N3",
+                "nome": "Unidade da Federação"
+              },
+              "nome": "Espírito Santo"
+            },
+            "serie": {
+              "2022": "1.3"
+            }
+          },
+          {
+            "localidade": {
+              "id": "33",
+              "nivel": {
+                "id": "N3",
+                "nome": "Unidade da Federação"
+              },
+              "nome": "Rio de Janeiro"
+            },
+            "serie": {
+              "2022": "1.3"
+            }
+          },
+          {
+            "localidade": {
+              "id": "35",
+              "nivel": {
+                "id": "N3",
+                "nome": "Unidade da Federação"
+              },
+              "nome": "São Paulo"
+            },
+            "serie": {
+              "2022": "1.2"
+            }
+          },
+          {
+            "localidade": {
+              "id": "41",
+              "nivel": {
+                "id": "N3",
+                "nome": "Unidade da Federação"
+              },
+              "nome": "Paraná"
+            },
+            "serie": {
+              "2022": "1.2"
+            }
+          },
+          {
+            "localidade": {
+              "id": "42",
+              "nivel": {
+                "id": "N3",
+                "nome": "Unidade da Federação"
+              },
+              "nome": "Santa Catarina"
+            },
+            "serie": {
+              "2022": "1.2"
+            }
+          },
+          {
+            "localidade": {
+              "id": "43",
+              "nivel": {
+                "id": "N3",
+                "nome": "Unidade da Federação"
+              },
+              "nome": "Rio Grande do Sul"
+            },
+            "serie": {
+              "2022": "1.1"
+            }
+          },
+          {
+            "localidade": {
+              "id": "50",
+              "nivel": {
+                "id": "N3",
+                "nome": "Unidade da Federação"
+              },
+              "nome": "Mato Grosso do Sul"
+            },
+            "serie": {
+              "2022": "1.1"
+            }
+          },
+          {
+            "localidade": {
+              "id": "51",
+              "nivel": {
+                "id": "N3",
+                "nome": "Unidade da Federação"
+              },
+              "nome": "Mato Grosso"
+            },
+            "serie": {
+              "2022": "1.1"
+            }
+          },
+          {
+            "localidade": {
+              "id": "52",
+              "nivel": {
+                "id": "N3",
+                "nome": "Unidade da Federação"
+              },
+              "nome": "Goiás"
+            },
+            "serie": {
+              "2022": "1.1"
+            }
+          },
+          {
+            "localidade": {
+              "id": "53",
+              "nivel": {
+                "id": "N3",
+                "nome": "Unidade da Federação"
+              },
+              "nome": "Distrito Federal"
+            },
+            "serie": {
+              "2022": "1.2"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
